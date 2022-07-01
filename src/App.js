@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from './redux/store.js';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import Navbar from './components/Navbar'
+import { routes } from './routes';
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Provider store={store}>
+        <ThemeProvider theme={darkTheme}>
+          <Navbar />
+          <Routes>
+            {
+              routes.map((route, index) => <Route path={route.path} element={<route.element key={index} />} />)
+            }
+          </Routes>
+        </ThemeProvider>
+      </Provider>
+    </BrowserRouter>
   );
 }
 

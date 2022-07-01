@@ -1,0 +1,29 @@
+.card{
+    &__link{
+        margin-top: auto;
+    }
+    
+    &__action{
+        display: 'flex';
+        flex-direction: 'column';
+        align-items:'flex-start';
+        height: 100%;
+    }
+
+    &__link{
+        margin-top: auto;
+        margin-bottom: 15px!important;
+        margin-left: 15px!important;
+        padding: 7px 15px;
+
+        min-width: 50px;
+        min-height: 20px;
+        background: linear-gradient(180deg,rgba(73, 180, 207, 1) 0%, rgba(0, 149, 186, 1));
+        border-radius: 7px;
+
+        &:hover{
+            color: white;
+            box-shadow: 0px 0px 25px rgba(0, 177, 227, 0.5);
+        }
+    }
+}
